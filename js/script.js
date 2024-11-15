@@ -37,6 +37,11 @@ window.onscroll = () => {
     navbar.classList.remove('active');
 };
 
+document.getElementById('openPdfBtn').addEventListener('click', function() {
+  const pdfUrl = '/CV-Himash.pdf';
+  window.open(pdfUrl, '_blank');
+});
+
 // scroll reveal
 ScrollReveal({ 
     // reset: true,
