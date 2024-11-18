@@ -65,6 +65,44 @@ const typed = new Typed('.multiple-text', {
     loop: true
 });
 
+// Initialize EmailJS with your user ID
+emailjs.init('oAtfcXYXsaZELxqnL'); // Replace with your EmailJS user ID
+
+// Add event listener to the send button
+document.getElementById('sendMessageBtn').addEventListener('click', function () {
+    // Collect form data
+    const fullName = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const mobile = document.getElementById('mobile').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    // Validate fields (optional but recommended)
+    if (!fullName || !email || !message) {
+        alert('Please fill in all required fields!');
+        return;
+    }
+
+    // Prepare the email data
+    const templateParams = {
+        fullName,
+        email,
+        mobile,
+        subject,
+        message,
+    };
+
+    // Send email using EmailJS
+    emailjs.send('service_8a0vrwt', 'template_ycygxz9', templateParams)
+        .then(function (response) {
+            alert('Message sent successfully! Thank you for contacting me.');
+            console.log('SUCCESS!', response.status, response.text);
+            document.getElementById('contact-form').reset(); // Clear the form
+        }, function (error) {
+            alert('Failed to send the message. Please try again.');
+            console.error('FAILED...', error);
+        });
+});
 
 
 
