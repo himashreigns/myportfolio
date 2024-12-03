@@ -38,7 +38,7 @@ window.onscroll = () => {
 };
 
 document.getElementById('openPdfBtn').addEventListener('click', function() {
-  const pdfUrl = '/CV-Himash.pdf';
+  const pdfUrl = '/Himash_CV.pdf';
   window.open(pdfUrl, '_blank');
 });
 
